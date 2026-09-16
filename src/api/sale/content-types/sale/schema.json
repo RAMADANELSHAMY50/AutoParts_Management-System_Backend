@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sales",
+  "info": {
+    "singularName": "sale",
+    "pluralName": "sales",
+    "displayName": "Sale"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "total": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "tax": {
+      "type": "decimal"
+    },
+    "grandTotal": {
+      "type": "decimal"
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": [
+        "نقداً",
+        "فيزا",
+        "محفظة إلكترونية"
+      ]
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "enum": [
+        "مدفوع",
+        "معلق",
+        "ملغى"
+      ]
+    },
+    "saleStatus": {
+      "type": "enumeration",
+      "enum": [
+        "تم الانتهاء",
+        "جاري المعالجة",
+        "تم الإلغاء"
+      ]
+    },
+    "saleDate": {
+      "type": "datetime"
+    },
+    "sale_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sale-item.sale-item",
+      "mappedBy": "sale"
+    },
+    "invoice": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::invoice.invoice"
+    }
+  }
+}

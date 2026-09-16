@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "Invoice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "invoiceNumber": {
+      "type": "uid"
+    },
+    "invoiceDate": {
+      "type": "datetime"
+    },
+    "invoiceStatus": {
+      "type": "enumeration",
+      "enum": [
+        "paid",
+        "pending",
+        "cancelled"
+      ]
+    },
+    "notes": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "support_conversations",
+  "info": {
+    "singularName": "support-conversation",
+    "pluralName": "support-conversations",
+    "displayName": "Support Conversation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "subject": {
+      "type": "string"
+    },
+    "status1": {
+      "type": "enumeration",
+      "enum": [
+        "مفتوحة",
+        "مغلقة"
+      ]
+    },
+    "support_messages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::support-message.support-message",
+      "mappedBy": "support_conversation"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "support_conversation"
+    }
+  }
+}

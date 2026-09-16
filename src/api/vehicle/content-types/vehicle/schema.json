@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicles",
+  "info": {
+    "singularName": "vehicle",
+    "pluralName": "vehicles",
+    "displayName": "Vehicle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "manufacturer": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "yearFrom": {
+      "type": "decimal"
+    },
+    "yearTo": {
+      "type": "decimal"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "vehicles"
+    }
+  }
+}

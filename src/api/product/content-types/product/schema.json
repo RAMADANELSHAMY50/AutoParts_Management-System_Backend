@@ -1,0 +1,96 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "costPrice": {
+      "type": "integer"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "salePrice": {
+      "type": "decimal"
+    },
+    "minimumStock": {
+      "type": "integer"
+    },
+    "stock": {
+      "type": "integer"
+    },
+    "stockStatus": {
+      "type": "enumeration",
+      "enum": [
+        "متوفر",
+        "كمية قليلة",
+        "نفدت الكمية"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "products"
+    },
+    "vehicles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::vehicle.vehicle",
+      "inversedBy": "products"
+    },
+    "sale_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sale-item.sale-item",
+      "mappedBy": "product"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "Categories": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "maxStock": {
+      "type": "integer"
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "product"
+    }
+  }
+}

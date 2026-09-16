@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "singularName": "notification",
+    "pluralName": "notifications",
+    "displayName": "Notification"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "message": {
+      "type": "richtext"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "مخزون منخفض",
+        "عرض جديد",
+        "عميل جديد",
+        "تم إنشاء الفاتورة",
+        "النظام"
+      ]
+    },
+    "isRead": {
+      "type": "boolean"
+    },
+    "createdat": {
+      "type": "datetime"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Inventory",
+        "Orders",
+        "POS",
+        "Customers",
+        "Invoices",
+        "Users",
+        "System",
+        "Errors"
+      ]
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ]
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "notification"
+    }
+  }
+}

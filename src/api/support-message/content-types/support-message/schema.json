@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "support_messages",
+  "info": {
+    "singularName": "support-message",
+    "pluralName": "support-messages",
+    "displayName": "Support Message"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "message": {
+      "type": "text"
+    },
+    "sender": {
+      "type": "enumeration",
+      "enum": [
+        "عميل",
+        "دعم"
+      ]
+    },
+    "support_conversation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::support-conversation.support-conversation",
+      "inversedBy": "support_messages"
+    }
+  }
+}

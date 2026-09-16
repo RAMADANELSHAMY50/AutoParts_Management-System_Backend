@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sale_items",
+  "info": {
+    "singularName": "sale-item",
+    "pluralName": "sale-items",
+    "displayName": "SaleItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quantity": {
+      "type": "integer"
+    },
+    "subtotal": {
+      "type": "decimal"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "sale": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sale.sale",
+      "inversedBy": "sale_items"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "sale_items"
+    }
+  }
+}

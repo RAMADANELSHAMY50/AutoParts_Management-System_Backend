@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "orderNumber": {
+      "type": "string"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "tax": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "subtotal": {
+      "type": "decimal"
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": [
+        "نقداً",
+        "بطاقة"
+      ]
+    },
+    "State": {
+      "type": "enumeration",
+      "enum": [
+        "قيد التنفيذ",
+        "جاري الشحن",
+        "تم التوصيل",
+        "ملغى"
+      ]
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "order"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "orders"
+    }
+  }
+}
